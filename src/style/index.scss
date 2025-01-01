@@ -25,7 +25,7 @@ $rem3: 3rem;
 // font family
 @font-face {
   font-family: Lobster;
-  src: url(/assets/fonts/Lobster/Lobster-Regular.ttf);
+  src: url(./assets/fonts/Lobster/Lobster-Regular.ttf);
 }
 
 body {
@@ -34,7 +34,7 @@ body {
   align-items: center;
   min-height: 100vh;
   /* overflow: hidden; */
-  background-image: url('../../assets/background.jpg');
+  background-image: url('./assets/background.jpg');
   // background-repeat: no-repeat;
   // background-size: cover;
   position: relative;
