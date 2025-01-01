@@ -1,0 +1,924 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  transition: all 0.3s;
+  scroll-behavior: smooth;
+  font-family: "Inter", sans-serif;
+  user-select: none;
+}
+
+@font-face {
+  font-family: Lobster;
+  src: url(/assets/fonts/Lobster/Lobster-Regular.ttf);
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* overflow: hidden; */
+  background-image: url("../../assets/background.jpg");
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  body {
+    width: 100%;
+    display: block;
+  }
+}
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(210, 63, 63, 0.9);
+  background: rgba(250, 67, 67, 0.9);
+  z-index: -1;
+}
+body .mobile-screen {
+  background-color: #f9f2f2;
+  width: 100%;
+  max-width: 38vmin;
+  height: 78vmin;
+  border-radius: 5vmin;
+  box-shadow: 0 0 0 0.6vmin #000, 0 0 0 0.9vmin #3a3b3c, 0 0 10vmin 0.4vmin #000000;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen {
+    max-width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+body .mobile-screen .mobile-left-btns {
+  position: absolute;
+  left: -1.2vmin;
+  top: 20vmin;
+  width: 0.4vmin;
+  height: 6vmin;
+  background-color: #2a2b2c;
+  border-bottom-left-radius: 5vmin;
+  border-top-left-radius: 5vmin;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen .mobile-left-btns {
+    display: none;
+  }
+}
+body .mobile-screen .mobile-left-btns::after {
+  content: "";
+  position: absolute;
+  top: 7vmin;
+  width: 0.4vmin;
+  height: 6vmin;
+  background-color: #2a2b2c;
+  border-bottom-left-radius: 5vmin;
+  border-top-left-radius: 5vmin;
+}
+body .mobile-screen .mobile-left-btns::before {
+  content: "";
+  position: absolute;
+  top: -6vmin;
+  width: 0.4vmin;
+  height: 4vmin;
+  background-color: #2a2b2c;
+  border-bottom-left-radius: 5vmin;
+  border-top-left-radius: 5vmin;
+}
+body .mobile-screen .mobile-right-btns {
+  position: absolute;
+  right: -1.2vmin;
+  top: 20vmin;
+  width: 0.4vmin;
+  height: 7.5vmin;
+  background-color: #2a2b2c;
+  border-bottom-right-radius: 5vmin;
+  border-top-right-radius: 5vmin;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen .mobile-right-btns {
+    display: none;
+  }
+}
+body .mobile-screen .camera {
+  position: absolute;
+  z-index: 100;
+  top: 1vmin;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #000;
+  width: 13vmin;
+  height: 3vmin;
+  border-radius: 50px;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen .camera {
+    display: none;
+  }
+}
+body .mobile-screen .camera .parts {
+  width: 2vmin;
+  height: 2vmin;
+  border-radius: 50%;
+  background: #080808;
+  position: absolute;
+  top: 50%;
+  right: 1vmin;
+  transform: translate(0, -50%);
+}
+body .mobile-screen .camera .parts::before {
+  content: "";
+  position: absolute;
+  width: 1vmin;
+  height: 1vmin;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #151625;
+}
+body .mobile-screen .camera .parts::after {
+  content: "";
+  position: absolute;
+  width: 0.4vmin;
+  height: 0.4vmin;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #3D4158;
+}
+body .mobile-screen main {
+  width: 100%;
+  height: 100%;
+  border-radius: 5vmin;
+  overflow: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main {
+    border-radius: 0px;
+  }
+}
+body .mobile-screen main::-webkit-scrollbar {
+  display: none;
+}
+body .mobile-screen main .loading_page {
+  background: linear-gradient(180deg, #d23f3f 0%, rgba(139, 6, 6, 0.79) 100%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+body .mobile-screen main .loading_page .logo_loading-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body .mobile-screen main .loading_page .logo_loading-container .logo {
+  font-family: Lobster;
+  font-size: 9.8vmin;
+  font-weight: 400;
+  line-height: 12vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #f9f2f2;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .loading_page .logo_loading-container .logo {
+    font-size: 6em;
+  }
+}
+body .mobile-screen main .loading_page .logo_loading-container > img.logo_berger {
+  position: absolute;
+  width: 38vmin;
+  bottom: -25vmin;
+  transition: bottom ease 4s;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .loading_page .logo_loading-container > img.logo_berger {
+    width: 30em;
+  }
+}
+body .mobile-screen main .loading_page .logo_loading-container > img.logo_berger-active {
+  bottom: -1vmin;
+}
+body .mobile-screen main .home_page {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+body .mobile-screen main .home_page > .header {
+  padding: 2rem 1rem;
+}
+body .mobile-screen main .home_page > .header .header-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .mobile-screen main .home_page > .header .header-logo .profile {
+  width: 6.5vmin;
+  height: 6.5vmin;
+  border-radius: 50%;
+  object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page > .header .header-logo .profile {
+    width: 70px;
+    height: 70px;
+  }
+}
+body .mobile-screen main .home_page > .header .header-logo span > h4 {
+  font-family: Lobster;
+  font-size: 3vmin;
+  font-weight: 400;
+  line-height: 3.5vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page > .header .header-logo span > h4 {
+    font-size: 3em;
+    line-height: 1.3em;
+  }
+}
+body .mobile-screen main .home_page > .header .header-logo span > p {
+  font-family: "Inter", sans-serif;
+  font-size: 1vmin;
+  font-weight: 400;
+  line-height: 1vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page > .header .header-logo span > p {
+    font-size: 1em;
+  }
+}
+body .mobile-screen main .home_page > .header .header-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.3vmin;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page > .header .header-search {
+    margin-top: 2.5em;
+  }
+}
+body .mobile-screen main .home_page > .header .header-search .search_bar {
+  background: #d9d9d9;
+  padding: 0px 2vmin;
+  border-radius: 50px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1vmin;
+  width: 26vmin;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page > .header .header-search .search_bar {
+    width: 100%;
+    padding: 0em 1.2em;
+  }
+}
+body .mobile-screen main .home_page > .header .header-search .search_bar > input {
+  outline: none;
+  border: none;
+  background: none;
+  padding: 1vmin 0;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page > .header .header-search .search_bar > input {
+    padding: 1em 0;
+  }
+}
+body .mobile-screen main .home_page > .header .header-search .header_settings {
+  padding: 0 1vmin;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page > .header .header-search .header_settings {
+    padding: 0 1em;
+  }
+}
+body .mobile-screen main .home_page > .header .header-search .header_settings .setting_icon {
+  background: #d23f3f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3vmin;
+  border-radius: 0.5vmin;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page > .header .header-search .header_settings .setting_icon {
+    padding: 0.3em;
+    border-radius: 0.5em;
+  }
+}
+body .mobile-screen main .home_page .filters {
+  width: 100%;
+  overflow: hidden;
+  overflow-x: scroll;
+  display: flex;
+  gap: 1vmin;
+  padding: 0px 2vmin;
+  padding-left: 2vmin;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page .filters {
+    padding: 0 1em;
+    padding-left: 1em;
+  }
+}
+body .mobile-screen main .home_page .filters::-webkit-scrollbar {
+  display: none;
+}
+body .mobile-screen main .home_page .filters .tab {
+  display: block;
+  background-color: #797777;
+  color: #f9f2f2;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5vmin;
+  font-weight: 400;
+  line-height: 1.5vmin;
+  text-align: center;
+  padding: 1vmin 3vmin;
+  border-radius: 1.2vmin;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page .filters .tab {
+    font-size: 0.9em;
+    padding: 0.8em 1.2em;
+    border-radius: 0.85em;
+  }
+}
+body .mobile-screen main .home_page .filters .tab:is(:hover, :active) {
+  background: #d23f3f;
+}
+body .mobile-screen main .home_page .filters .tab.active {
+  background: #d23f3f;
+  font-weight: 700;
+}
+body .mobile-screen main .home_page .food_container {
+  width: 100%;
+  max-height: 52vmin;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vmin;
+  align-items: end;
+  padding: 0 2vmin;
+  padding-bottom: 5vmin;
+  overflow: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page .food_container {
+    height: 100%;
+    max-height: 500px;
+    margin-top: 0;
+    padding: 0 2em;
+  }
+}
+body .mobile-screen main .home_page .food_container::-webkit-scrollbar {
+  display: none;
+}
+body .mobile-screen main .home_page .food_container .food_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .mobile-screen main .home_page .food_container .food_card > img {
+  transform: translateY(3.5vmin);
+  width: 11.5vmin;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page .food_container .food_card > img {
+    width: 100px;
+  }
+}
+body .mobile-screen main .home_page .food_container .food_card .food_content {
+  background: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 1vmin;
+  padding-top: 4vmin;
+  border-radius: 1.2vmin;
+  box-shadow: 0 0 2vmin 0.5vmin #ccc;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page .food_container .food_card .food_content {
+    padding: 2em 1em;
+  }
+}
+body .mobile-screen main .home_page .food_container .food_card .food_content > .food_name {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2vmin;
+  font-weight: 500;
+  line-height: 1.4vmin;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page .food_container .food_card .food_content > .food_name {
+    font-size: 1em;
+    line-height: 1em;
+  }
+}
+body .mobile-screen main .home_page .food_container .food_card .food_content > .food_des {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2vmin;
+  font-weight: 400;
+  line-height: 1.4vmin;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page .food_container .food_card .food_content > .food_des {
+    font-size: 1em;
+    line-height: 1em;
+  }
+}
+body .mobile-screen main .home_page .food_container .food_card .food_content .food_ratings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75vmin;
+  font-family: "Inter", sans-serif;
+}
+body .mobile-screen main .home_page .food_container .food_card .food_content .food_ratings .rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75vmin;
+}
+body .mobile-screen main .home_page .food_container .food_card .food_content .food_ratings .rating .rating_number {
+  font-size: 1.2vmin;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page .food_container .food_card .food_content .food_ratings .rating .rating_number {
+    font-size: 1em;
+  }
+}
+body .mobile-screen main .home_page .food_container .food_card .food_content .food_ratings .heart {
+  cursor: pointer;
+}
+body .mobile-screen main .home_page .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+body .mobile-screen main .home_page .footer ul {
+  background-color: #d23f3f;
+  color: #f9f2f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 2vmin;
+  height: 7vmin;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page .footer ul {
+    padding: 0 2em;
+    height: 4em;
+  }
+}
+body .mobile-screen main .home_page .footer ul > li {
+  cursor: pointer;
+  background-color: #d23f3f;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .mobile-screen main .home_page .footer ul > li:is(:hover, :active) > svg {
+  width: 3vmin;
+  height: 3vmin;
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page .footer ul > li:is(:hover, :active) > svg {
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
+body .mobile-screen main .home_page .footer ul > li > svg {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s;
+}
+body .mobile-screen main .home_page .footer ul > li.plus {
+  transform: translateY(-3vmin);
+}
+@media screen and (max-width: 768px) {
+  body .mobile-screen main .home_page .footer ul > li.plus {
+    transform: translateY(-1.5em);
+  }
+}
+body .mobile-screen main .food_page {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 1vmin 2vmin;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 4;
+  display: block;
+}
+body .mobile-screen main .food_page .page_back {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .mobile-screen main .food_page .main_image {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+body .mobile-screen main .food_page .content_container .name {
+  font-family: "Inter", sans-serif;
+  color: #000;
+  font-size: 2.3vmin;
+  font-weight: 400;
+  line-height: 3.5vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+body .mobile-screen main .food_page .content_container .rating {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.6vmin;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2vmin;
+}
+body .mobile-screen main .food_page .content_container .rating .rating_number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .mobile-screen main .food_page .content_container .description {
+  font-family: "Inter", sans-serif;
+  font-size: 1.6vmin;
+  font-weight: 200;
+  line-height: 1.9vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin-top: 1vmin;
+  height: 12vmin;
+  overflow: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body .mobile-screen main .food_page .content_container .description::-webkit-scrollbar {
+  display: none;
+}
+body .mobile-screen main .food_page .content_container .quantity_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3vmin;
+}
+body .mobile-screen main .food_page .content_container .quantity_container .quantity_box {
+  display: flex;
+  align-items: center;
+}
+body .mobile-screen main .food_page .content_container .quantity_container .quantity_box .quantity_number {
+  width: 3.4vmin;
+  height: 3.4vmin;
+  color: #000;
+  border: 0;
+  outline: 0;
+  background: none;
+  font-family: "Inter", sans-serif;
+  font-size: 1.6vmin;
+  font-weight: 400;
+  line-height: 1.8vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  text-align: center;
+}
+body .mobile-screen main .food_page .content_container .quantity_container .quantity_box .minus,
+body .mobile-screen main .food_page .content_container .quantity_container .quantity_box .plus {
+  width: 3.4vmin;
+  height: 3.4vmin;
+  background: #d23f3f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  border-radius: 0.5vmin;
+}
+body .mobile-screen main .food_page .content_container .quantity_container .spicy_wrapper input {
+  accent-color: #d23f3f;
+  cursor: pointer;
+}
+body .mobile-screen main .food_page .content_container .quantity_container .spicy_wrapper .spicy {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2vmin;
+}
+body .mobile-screen main .food_page .content_container .quantity_container .spicy_wrapper > span {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1vmin;
+  font-family: "Inter", sans-serif;
+}
+body .mobile-screen main .food_page .content_container .quantity_container .spicy_wrapper > span .mild {
+  color: #699910;
+}
+body .mobile-screen main .food_page .content_container .quantity_container .spicy_wrapper > span .hot {
+  color: #d23f3f;
+}
+body .mobile-screen main .food_page .order_now_container {
+  position: absolute;
+  bottom: 4vmin;
+  left: 0;
+  padding: 0 2vmin;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .mobile-screen main .food_page .order_now_container .price {
+  background: #d23f3f;
+  padding: 1rem 2rem;
+  border-radius: 1vmin;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 1.6vmin;
+  font-weight: 600;
+  line-height: 1.8vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+body .mobile-screen main .food_page .order_now_container > button {
+  background: #797777;
+  color: #fff;
+  padding: 1rem 3rem;
+  border-radius: 1vmin;
+  outline: none;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-size: 1.6vmin;
+  font-weight: 600;
+  line-height: 1.8vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+}
+body .mobile-screen main .food_page .order_now_container > button:is(:hover, :active) {
+  background: #d23f3f;
+}
+body .mobile-screen main .payment_page {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 1vmin 2vmin;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 6;
+  display: block;
+  font-family: "Inter", sans-serif;
+}
+body .mobile-screen main .payment_page .page_back {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .mobile-screen main .payment_page .order_summary_container {
+  margin-top: 1vmin;
+}
+body .mobile-screen main .payment_page .order_summary_container > p {
+  font-size: 1.6vmin;
+}
+body .mobile-screen main .payment_page .order_summary_container ul {
+  margin-top: 2vmin;
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
+}
+body .mobile-screen main .payment_page .order_summary_container ul > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.6vmin;
+  font-weight: 600;
+  line-height: 1.8vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #797777;
+  padding: 0 1.2vmin;
+}
+body .mobile-screen main .payment_page .order_summary_container ul li.total {
+  color: #000;
+}
+body .mobile-screen main .payment_page .order_summary_container ul li.delivery_time {
+  font-weight: 400;
+  margin-top: -1vmin;
+}
+body .mobile-screen main .payment_page .order_summary_container ul hr {
+  width: 100%;
+  height: 0.2vmin;
+  border-radius: 50vmin;
+  background: rgba(115, 107, 107, 0.1411764706);
+  border: none;
+  outline: none;
+}
+body .mobile-screen main .payment_page .payment_method_container {
+  margin-top: 6vmin;
+}
+body .mobile-screen main .payment_page .payment_method_container > p {
+  font-size: 1.6vmin;
+  margin-bottom: 2vmin;
+}
+body .mobile-screen main .payment_page .payment_method_container .payment_method_card {
+  background: #816262;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1vmin;
+  border-radius: 1vmin;
+  overflow: hidden;
+}
+body .mobile-screen main .payment_page .payment_method_container .payment_method_card > img {
+  width: 9.5vmin;
+  object-fit: contain;
+}
+body .mobile-screen main .payment_page .payment_method_container .payment_method_card > span p {
+  color: #C1ABAB;
+  font-size: 1.6vmin;
+  font-weight: 600;
+  line-height: 1.8vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+body .mobile-screen main .payment_page .payment_method_container .payment_method_card > span .card {
+  color: #F1E6E6;
+  font-size: 1.6vmin;
+  font-weight: 800;
+  line-height: 1.8vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+body .mobile-screen main .payment_page .payment_method_container .payment_method_card_secondery {
+  margin-top: 0.5vmin;
+  background: #D6D6D6;
+}
+body .mobile-screen main .payment_page .payment_method_container .payment_method_card_secondery > img {
+  padding: 0 1vmin;
+}
+body .mobile-screen main .payment_page .payment_method_container .payment_method_card_secondery > span p {
+  color: #878787;
+}
+body .mobile-screen main .payment_page .payment_method_container .payment_method_card_secondery > span .card {
+  color: #4D4B4B;
+}
+body .mobile-screen main .payment_page .future_payment_checkbox {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1vmin;
+  margin-top: 3.5vmin;
+}
+body .mobile-screen main .payment_page .future_payment_checkbox > input {
+  accent-color: #d23f3f;
+  width: 2vmin;
+  height: 2vmin;
+}
+body .mobile-screen main .payment_page .future_payment_checkbox > p {
+  color: #000;
+  font-size: 1.3vmin;
+  font-weight: 200;
+  line-height: 1.5vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+body .mobile-screen main .payment_page .pay_now_container {
+  position: absolute;
+  bottom: 4vmin;
+  left: 0;
+  padding: 0 2vmin;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .mobile-screen main .payment_page .pay_now_container > span > .price_text {
+  font-size: 1.2vmin;
+  font-weight: 300;
+  line-height: 1.4vmin;
+  text-align: left;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: auto;
+}
+body .mobile-screen main .payment_page .pay_now_container > span > .price {
+  font-size: 2vmin;
+  font-weight: 600;
+  line-height: 2.5vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin-top: 5px;
+}
+body .mobile-screen main .payment_page .pay_now_container > button {
+  background: #797777;
+  color: #fff;
+  padding: 1rem 3rem;
+  border-radius: 1vmin;
+  outline: none;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-size: 1.6vmin;
+  font-weight: 600;
+  line-height: 1.8vmin;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+}
+body .mobile-screen main .payment_page .pay_now_container > button:is(:hover, :active) {
+  background: #d23f3f;
+}
+body .coming-soon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #d23f3f;
+  color: #eee;
+  font-size: 3vmin;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+@media screen and (min-width: 769px) {
+  body .coming-soon {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
