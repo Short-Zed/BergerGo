@@ -8,7 +8,7 @@
             "content":"The Hamburger Wendy’s Burger is a classic fast food burger that packs a punch of flavor in every bite. Made with a juicy beef patty cooked to perfection, it’s topped with melted American cheese, crispy lettuce, rie tomato, and crunchy pickles.",
             "timing":"26 min",
             "rating":"4.9",
-            "image":"../../assets/cheese-burger.png",
+            "image":"./assets/cheese-burger.png",
             "price":49
         },
         {
@@ -18,7 +18,7 @@
             "content":"The Hamburger Wendy’s Burger is a classic.",
             "timing":"24 min",
             "rating":"4.2",
-            "image":"../../assets/hamburger.png",
+            "image":"./assets/hamburger.png",
             "price":39
         },
         {
@@ -28,7 +28,7 @@
             "content":"a punch of flavor in every bite. Made with a juicy beef patty cooked to perfection, it’s topped with melted American cheese, crispy lettuce, rie tomato, and crunchy pickles.",
             "timing":"30 min",
             "rating":"4.8",
-            "image":"../../assets/Double_patty_cheese_png2-removebg-preview 2.png",
+            "image":"./assets/Double_patty_cheese_png2-removebg-preview 2.png",
             "price":99
         },{
             "product_sku":"bergergo1001",
@@ -37,7 +37,7 @@
             "content":"The Hamburger Wendy’s Burger is a classic fast food burger that packs a punch of flavor in every bite. Made with a juicy beef patty cooked to perfection, it’s topped with melted American cheese, crispy lettuce, rie tomato, and crunchy pickles.",
             "timing":"26 min",
             "rating":"4.9",
-            "image":"../../assets/cheese-burger.png",
+            "image":"./assets/cheese-burger.png",
             "price":49
         },
         {
@@ -47,7 +47,7 @@
             "content":"The Hamburger Wendy’s Burger is a classic.",
             "timing":"24 min",
             "rating":"4.2",
-            "image":"../../assets/hamburger.png",
+            "image":"./assets/hamburger.png",
             "price":39
         },
         {
@@ -57,7 +57,7 @@
             "content":"a punch of flavor in every bite. Made with a juicy beef patty cooked to perfection, it’s topped with melted American cheese, crispy lettuce, rie tomato, and crunchy pickles.",
             "timing":"30 min",
             "rating":"4.8",
-            "image":"../../assets/Double_patty_cheese_png2-removebg-preview 2.png",
+            "image":"./assets/Double_patty_cheese_png2-removebg-preview 2.png",
             "price":99
         }
     ]
