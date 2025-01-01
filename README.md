@@ -5,7 +5,7 @@ A responsive and visually appealing food ordering website showcasing delicious b
 ![BergerGo Preview](./BergerGo.png)  
 
 ### 🔗 Live Preview  
-Check out the live demo: [BergerGo Live Preview](#) *(Add your link here)*  
+Check out the live demo: [BergerGo Live Preview](https://short-zed.github.io/BergerGo/) 
 
 ![BergerGo Preview](./screenshot.gif)  
 
@@ -34,4 +34,4 @@ Check out the live demo: [BergerGo Live Preview](#) *(Add your link here)*
 ### Installation  
 1. Clone the repository:  
    ```bash  
-   git clone https://github.com/yourusername/BergerGo.git  
+   git clone https://github.com/Short-Zed/BergerGo.git 
